@@ -5,7 +5,6 @@ import { envVars } from "../config/env";
 import { prisma } from "./prisma";
 import { sendEmail } from "./email";
 import { Role, UserStatus } from "../../generated/prisma/enums";
-// If your Prisma file is located elsewhere, you can change the path
 
 export const auth = betterAuth({
     baseURL: envVars.BETTER_AUTH_URL,

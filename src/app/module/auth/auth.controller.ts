@@ -1,10 +1,10 @@
 import BaseController from "../../shared/baseController";
-import { authService } from "./auth.service";
+import { AuthService } from "./auth.service";
 import httpStatus from "http-status";
 
  class Controller extends BaseController {
     register = this.catchAsync(async (req, res) => {
-        const result = await authService.register()
+        const result = await AuthService.register()
         this.sendResponse(res, {
             statusCode: httpStatus.CREATED,
             success: true,
@@ -13,4 +13,4 @@ import httpStatus from "http-status";
         })
     })
 }
-export const authController = new Controller()
+export const AuthController = new Controller()

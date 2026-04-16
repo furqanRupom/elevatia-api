@@ -1,4 +1,4 @@
 class Service {
     async register(){}
 }
-export const authService = new Service()
+export const AuthService = new Service()
