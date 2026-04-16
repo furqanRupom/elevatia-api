@@ -15,4 +15,5 @@ dist/
 *.swp
 *.swo
 
+/src/generated
 /generated/prisma
