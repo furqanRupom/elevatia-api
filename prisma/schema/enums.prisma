@@ -1,0 +1,34 @@
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  BUSINESS_OWNER
+  VISITOR
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  DELETED
+  BLOCKED
+}
+
+enum SubscriptionPlan {
+  BASIC
+  PRO
+  PREMIUM
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELED
+  PAST_DUE
+  TRIALING
+  INCOMPLETE
+}
+
+enum ListingStatus {
+  PENDING   // awaiting admin approval
+  ACTIVE    // visible on directory
+  SUSPENDED // removed by admin
+  EXPIRED   // subscription ended
+}

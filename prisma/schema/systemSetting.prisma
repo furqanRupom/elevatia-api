@@ -1,0 +1,10 @@
+model SystemSetting {
+  id          String   @id @default(uuid(7))
+  key         String   @unique
+  value       Json
+  description String?
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+
+  @@map("systemSetting")
+}

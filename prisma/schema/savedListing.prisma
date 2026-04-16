@@ -1,0 +1,13 @@
+model SavedListing {
+  id          String   @id @default(uuid())
+  userId      String
+  businessId  String
+  savedAt     DateTime @default(now())
+  
+  user        User     @relation(fields: [userId], references: [id])
+  business    Business @relation(fields: [businessId], references: [id])
+  
+  @@unique([userId, businessId])
+
+  @@map("savedListing")
+}

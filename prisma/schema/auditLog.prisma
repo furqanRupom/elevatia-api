@@ -1,0 +1,17 @@
+model AuditLog {
+  id          String   @id @default(uuid(7))
+  userId      String?
+  action      String   // "business.create", "subscription.cancel", etc.
+  entityType  String   // "Business", "Subscription", "User"
+  entityId    String?
+  oldValues   Json?
+  newValues   Json?
+  ipAddress   String?
+  createdAt   DateTime @default(now())
+  
+  @@index([userId])
+  @@index([entityType, entityId])
+  @@index([createdAt])
+
+  @@map("auditLog")
+}

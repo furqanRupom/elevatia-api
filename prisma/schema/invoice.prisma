@@ -1,0 +1,18 @@
+model Invoice {
+  id              String    @id @default(uuid())
+  subscriptionId  String
+  stripeInvoiceId String    @unique
+  amount          Float     @default(0.0)
+  currency        String    @default("usd")
+  status          String // "paid", "open", "void"
+  invoiceUrl      String?
+  paidAt          DateTime?
+  createdAt       DateTime  @default(now())
+
+  subscription Subscription @relation(fields: [subscriptionId], references: [id])
+
+  @@index([subscriptionId])
+  @@index([stripeInvoiceId])
+
+  @@map("invoice")
+}

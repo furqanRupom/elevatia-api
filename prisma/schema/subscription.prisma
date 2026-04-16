@@ -1,0 +1,31 @@
+model Subscription {
+  id                   String           @id @default(uuid())
+  businessId           String           @unique // One subscription per business
+  plan                 SubscriptionPlan @default(BASIC)
+  stripeSubscriptionId String?          @unique
+  stripePriceId        String?
+
+  status             SubscriptionStatus @default(INCOMPLETE)
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+  cancelAtPeriodEnd  Boolean            @default(false)
+  canceledAt         DateTime?
+
+  // Amount
+  amountPaid Float  @default(0.0)
+  currency   String @default("usd")
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  business Business  @relation(fields: [businessId], references: [id])
+  invoices Invoice[]
+
+  @@index([businessId])
+  @@index([status])
+  @@index([stripeSubscriptionId])
+
+  @@map("subscription")
+}

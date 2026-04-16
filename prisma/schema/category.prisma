@@ -1,0 +1,17 @@
+model Category {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  icon        String?  // Emoji or icon name
+  order       Int      @default(0) // Display order
+  isActive    Boolean  @default(true)
+  
+  // Relations
+  businesses  Business[]
+  
+  @@index([slug])
+  @@index([isActive])
+
+  @@map("category")
+}

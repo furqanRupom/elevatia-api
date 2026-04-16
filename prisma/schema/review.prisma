@@ -1,0 +1,19 @@
+model Review {
+  id          String   @id @default(uuid())
+  businessId  String
+  userId      String
+  rating      Int      // 1-5 stars
+  comment     String? 
+  isVerified  Boolean  @default(false) // Only verified purchasers? (optional)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  business    Business @relation(fields: [businessId], references: [id])
+  user        User     @relation(fields: [userId], references: [id])
+  
+  @@unique([businessId, userId]) // One review per user per business
+  @@index([businessId])
+  @@index([rating])
+  @@map("review")
+}
