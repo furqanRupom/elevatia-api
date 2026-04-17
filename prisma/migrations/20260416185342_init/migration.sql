@@ -29,7 +29,6 @@ CREATE TABLE "auditLog" (
 CREATE TABLE "user" (
     "id" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "password" TEXT NOT NULL,
     "name" TEXT,
     "role" "UserRole" NOT NULL DEFAULT 'VISITOR',
     "needPasswordChange" BOOLEAN NOT NULL DEFAULT false,
