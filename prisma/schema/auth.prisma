@@ -1,7 +1,7 @@
 model User {
   id                 String     @id
   email              String     @unique
-  password           String // Hashed (null for visitor signup)
+  // password           String // Hashed (null for visitor signup)
   name               String?
   role               Role       @default(VISITOR)
   needPasswordChange Boolean    @default(false)

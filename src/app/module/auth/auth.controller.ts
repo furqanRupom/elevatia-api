@@ -3,12 +3,10 @@ import { envVars } from "../../config/env";
 import BaseController from "../../shared/baseController";
 import { AuthService } from "./auth.service";
 import httpStatus from "http-status";
-import ms, { StringValue } from "ms"
 import { tokenUtils } from "../../utils/token";
 
 class Controller extends BaseController {
     register = this.catchAsync(async (req: Request, res: Response) => {
-        const maxAge = ms(envVars.ACCESS_TOKEN_EXPIRES_IN as StringValue)
         const payload = req.body;
         const result = await AuthService.register(payload)
 
