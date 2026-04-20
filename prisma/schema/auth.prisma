@@ -3,7 +3,7 @@ model User {
   email              String     @unique
   // password           String // Hashed (null for visitor signup)
   name               String?
-  role               Role       @default(VISITOR)
+  role               Role       @default(USER)
   needPasswordChange Boolean    @default(false)
   isDeleted          Boolean    @default(false)
   status             UserStatus @default(ACTIVE)

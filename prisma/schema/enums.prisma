@@ -1,8 +1,7 @@
 enum Role {
   SUPER_ADMIN
   ADMIN
-  BUSINESS_OWNER
-  VISITOR
+  USER
 }
 
 enum UserStatus {
@@ -27,8 +26,8 @@ enum SubscriptionStatus {
 }
 
 enum ListingStatus {
-  PENDING   // awaiting admin approval
-  ACTIVE    // visible on directory
+  PENDING // awaiting admin approval
+  ACTIVE // visible on directory
   SUSPENDED // removed by admin
-  EXPIRED   // subscription ended
+  EXPIRED // subscription ended
 }
