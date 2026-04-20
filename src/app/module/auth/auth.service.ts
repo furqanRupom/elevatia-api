@@ -9,7 +9,6 @@ import status from "http-status"
 class Service {
     async register(payload: IRegisterPayload) {
         const { name, email, password } = payload;
-        console.log(payload)
         const data = await auth.api.signUpEmail({
             body: {
                 name,
