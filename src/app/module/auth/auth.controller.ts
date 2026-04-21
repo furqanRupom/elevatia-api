@@ -48,5 +48,15 @@ class Controller extends BaseController {
             }
         })
     })
+
+    profile = this.catchAsync(async(req:Request,res:Response)=> {
+        const result = await AuthService.getProfile(req.user.userId)
+        this.sendResponse(res,{
+            statusCode:httpStatus.OK,
+            success:true,
+            message:"Fetched user profile successfully",
+            data:result
+        })
+    })
 }
 export const AuthController = new Controller()
