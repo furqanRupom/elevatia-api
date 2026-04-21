@@ -90,5 +90,9 @@ class Service {
         }
 
     }
+    async getProfile(userId:string) {
+        const user = await prisma.user.findUniqueOrThrow({id:userId})
+        return user
+    }
 }
 export const AuthService = new Service()
