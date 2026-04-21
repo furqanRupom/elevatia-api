@@ -7,6 +7,6 @@ const router = Router();
 
 router.post('/register', AuthController.register);
 router.post('/login', AuthController.login);
-
+router.get('/me',checkAuth(Role.ADMIN,Role.SUPER_ADMIN,Role.USER),AuthController.profile)
 
 export const AuthRoutes = router;
