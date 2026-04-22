@@ -17,6 +17,7 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve(process.cwd(), `src/app/templates`))
 
 // we will explore how to handle this weebhooks
+// For now, we will just log the event data to the console
 // app.post("/webhook", express.raw({ type: "application/json" }), PaymentController.handleStripeWebhookEvent)
 
 app.use(cors({
